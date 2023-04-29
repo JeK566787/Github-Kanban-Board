@@ -3,7 +3,7 @@ import { fetchActivity } from "./operation";
 
 const urlInitialState = {
   formURL: [],
-  activity: null,
+  activity: [],
   error: null,
 };
 
@@ -24,7 +24,7 @@ const urlSlice = createSlice({
         state.activity = action.payload;
       })
       .addCase(fetchActivity.rejected, (state, action) => {
-        console.log(action.payload);
+        state.error = action.payload;
       }),
 });
 // Экспортируем генераторы экшенов и редюсер
